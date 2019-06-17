@@ -2,22 +2,22 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 
-// Import routes and give the server access to them
+// Import routes:
 var burgersController = require("./controllers/burgers_controller.js");
 
-// Import the model (burger.js) to use its database functions
+
 var burger = require("./models/burger.js");
 
 var port = process.env.PORT || 3004;
 
 var app = express();
 
-// Serve static content for the app from the "public" directory in the application directory
+
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Set Handlebars
+// handlebars:
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
