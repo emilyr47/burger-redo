@@ -1,7 +1,6 @@
-// Import MySQL connection
+// db connection from config:
 var connection = require("../config/connection.js");
 
-// Helper function for SQL syntax
 function printQuestionMarks(num) {
   var arr = [];
 
@@ -12,16 +11,14 @@ function printQuestionMarks(num) {
   return arr.toString();
 }
 
-// Helper function to convert object key/value pairs to SQL syntax
+// researched this... it changes object key pairs into SQL:
 function objToSql(ob) {
   var arr = [];
 
-  // Loop through the keys and push the key/value as a string int arr
+  // Loop that loops through keys and pushes them into array:
   for (var key in ob) {
     var value = ob[key];
-    // Check to skip hidden properties
     if (Object.hasOwnProperty.call(ob, key)) {
-      // If string with spaces, add quotations
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = "'" + value + "'";
       }
@@ -29,8 +26,7 @@ function objToSql(ob) {
     }
   }
 
-  // Translate array of strings to a single comma-separated string
-  return arr.toString();
+  return arr.toString(); // make this neater and into a string
 }
 
 var orm = {
@@ -101,5 +97,4 @@ var orm = {
 
 };
 
-// Export the orm object for the model (burger.js)
 module.exports = orm;
