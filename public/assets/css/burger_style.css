@@ -1,0 +1,27 @@
+html {
+  background-color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+label {
+  color: #424242;
+}
+
+div#lists {
+  margin-bottom: 40px;
+}
+
+#burger_row {
+  margin-bottom: 50px;
+}
+
+.btn {
+  color: black;
+}
