@@ -10,4 +10,4 @@ HTML
 Javascript
 Node.js
 
-Link to deployed heroku version: https://burger-redo.herokuapp.com/
+Link to deployed heroku app: https://burger-redo.herokuapp.com/
