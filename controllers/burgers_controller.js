@@ -2,10 +2,9 @@ var express = require("express");
 
 var router = express.Router();
 
-// Import the model (burger.js) to use its database functions
+// model import:
 var burger = require("../models/burger.js");
 
-// Create routes and set up logic within those routes where required
 
 router.post("/", function(request, response) {
   burger.create([
@@ -13,7 +12,8 @@ router.post("/", function(request, response) {
   ], [
     request.body.burger_name, request.body.devoured
   ], function(result) {
-    // Send back the ID of the new burger
+    // new burger id is sent back so that it can display:
+    
     response.json({ id: result.insertId });
   });
 });
@@ -27,7 +27,6 @@ router.put("/:id", function(request, response) {
     devoured: request.body.devoured
   }, condition, function(result) {
     if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
       return response.status(404).end();
     } else {
       response.status(200).end();
@@ -40,7 +39,6 @@ router.delete("/:id", function(request, response) {
 
   burger.delete(condition, function(result) {
     if (result.affectedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
       return response.status(404).end();
     } else {
       response.status(200).end();
@@ -48,5 +46,4 @@ router.delete("/:id", function(request, response) {
   });
 });
 
-// Export routes for server.js to use
 module.exports = router;
