@@ -4,10 +4,10 @@ This is an app that allows you to eat customized burgers and keep track of them.
 
 This app uses:
 
-Handlebars
-CSS
-HTML
-Javascript
+Handlebars,
+CSS,
+HTML,
+Javascript, &
 Node.js
 
 Link to deployed heroku app: https://burger-redo.herokuapp.com/
